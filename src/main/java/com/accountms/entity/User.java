@@ -22,7 +22,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Builder
 public class User implements Serializable, UserDetails {
-    @JsonIgnore
+
     @jakarta.persistence.Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long userId;

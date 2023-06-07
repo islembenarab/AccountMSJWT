@@ -42,6 +42,7 @@ public class JwtAutFilter extends OncePerRequestFilter {
             return;
         }
         jwt = header.substring(7);
+        System.out.println(jwt);
         email = jwtService.extractEmail(jwt);
         Claims claims= jwtService.getAllClaims(jwt);
         System.out.println(email);
@@ -53,6 +54,7 @@ public class JwtAutFilter extends OncePerRequestFilter {
                 Collection<? extends GrantedAuthority> grantedAuthorities =authorities.stream()
                         .map(SimpleGrantedAuthority::new)
                         .collect(Collectors.toList());
+                grantedAuthorities.forEach(grantedAuthority -> System.out.println(grantedAuthority.getAuthority()));
                 UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(user,
                         null,
                         grantedAuthorities);
