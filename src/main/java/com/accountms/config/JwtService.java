@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 
 @Service
 public class JwtService {
-    public final static String SECRET_KEY = "3F4528482B4D6251655468576D5A7134743777397A24432646294A404E635266";
+    public final static String SECRET_KEY ="";
 
     public String extractEmail(String token) {
         return extractClaim(token, Claims::getSubject);
